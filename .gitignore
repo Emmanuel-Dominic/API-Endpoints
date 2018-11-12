@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .pytest_cache
 venv
 __init__.pyc
@@ -5,3 +6,10 @@ app.pyc
 __pycache__
 
 
+=======
+venv
+__pycache__
+*.pyc
+.vscode
+.pytest_cache
+>>>>>>> 37f39ede0e30d7e8a6a3bc2c0d50d23708ad2b57

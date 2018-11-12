@@ -2,6 +2,7 @@ from flask import Flask, jsonify, request, Response, json
 
 
 def create_app(config=None):
+<<<<<<< HEAD
     """
     This function allows to pass different configuration.
     """
@@ -26,16 +27,35 @@ def create_app(config=None):
         """
         This function returns/Fetch a specific parcel delivery order.
         """
+=======
+    app = Flask(__name__)
+
+    @app.route('/')
+    def helloworld():
+        return jsonify({'EMMANUEL ': 'API-Endpoints'}),200
+
+    @app.route('/parcels', methods=['GET'])
+    def get_parcels():
+        return jsonify({'ALL_PARCEL_ORDERS ': parcels}), 200
+
+    @app.route('/parcels/<int:parcelId>', methods=['GET'])
+    def get_parcel(parcelId):
+>>>>>>> 37f39ede0e30d7e8a6a3bc2c0d50d23708ad2b57
         for parcel in parcels:
             if parcel['parcelId'] == parcelId:
                 return jsonify({'SPECIFIC_PARCEL ':parcel}), 200
         return jsonify({'Error':"Not found"}), 404
 
+<<<<<<< HEAD
     @app.route('/api/v1/users/<int:userId>/parcels', methods=['GET'])
     def user_parcels(userId):
         """
         This function returns/Fetch all parcel delivery orders by a specific user.
         """
+=======
+    @app.route('/users/<int:userId>/parcels', methods=['GET'])
+    def user_parcels(userId):
+>>>>>>> 37f39ede0e30d7e8a6a3bc2c0d50d23708ad2b57
         user_parcels = []
         for parcel in parcels:
             if parcel['userId'] == userId:
@@ -45,6 +65,7 @@ def create_app(config=None):
         return jsonify({'Error':"Not found"}), 404
 
 
+<<<<<<< HEAD
     @app.route('/api/v1/parcels/<int:parcelId>/cancel', methods=['PUT'])
     def cancel_parcel(parcelId):
         """
@@ -60,6 +81,17 @@ def create_app(config=None):
         """
         This function returns Created a parcel delivery order.
         """
+=======
+    @app.route('/parcels/<int:parcelId>/cancel', methods=['PUT'])
+    def cancel_parcel(parcelId):
+        for parcel in parcels:
+            if parcel["parcelId"] == parcelId:
+                parcel["status"]= False
+                return jsonify({'Cancelled': parcels}), 200
+
+    @app.route('/parcels', methods=['POST'])
+    def create_parcel():
+>>>>>>> 37f39ede0e30d7e8a6a3bc2c0d50d23708ad2b57
         request_data = request.get_json()
         if is_valid_request(request_data):
             parcel = {'parcelId': len(parcels) + 1,'item': request_data['item'],\
@@ -81,9 +113,12 @@ def create_app(config=None):
 
 
     def is_valid_request(newparcel):
+<<<<<<< HEAD
         """
         This function checks for parcel delivery order input if valid.
         """
+=======
+>>>>>>> 37f39ede0e30d7e8a6a3bc2c0d50d23708ad2b57
         if "item" in newparcel and "weight" in newparcel and\
          "destination" in newparcel and "locationPicker" in newparcel and\
           "commentDescription" in newparcel and "status" in newparcel: 

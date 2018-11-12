@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 apsw==3.16.2.post1
 asn1crypto==0.24.0
 astroid==1.6.0
@@ -94,3 +95,18 @@ websocket-client==0.44.0
 Werkzeug==0.14.1
 wrapt==1.9.0
 yum-metadata-parser==1.1.4
+=======
+atomicwrites==1.2.1
+attrs==18.2.0
+Click==7.0
+Flask==1.0.2
+itsdangerous==1.1.0
+Jinja2==2.10
+MarkupSafe==1.1.0
+more-itertools==4.3.0
+pluggy==0.8.0
+py==1.7.0
+pytest==3.10.0
+six==1.11.0
+Werkzeug==0.14.1
+>>>>>>> 37f39ede0e30d7e8a6a3bc2c0d50d23708ad2b57

@@ -4,6 +4,7 @@ A set of API endpoints defined to use data structures
 to store data in memory (without use a database).
 
 ## Getting Started Requirements
+<<<<<<< HEAD
 
 ###You Need to install:
 ```
@@ -77,6 +78,16 @@ RESTful API to power front-end pages
  ```
 ```
 ###14.Ensure the app gets hosted on Heroku.
+=======
+```
+ https://www.pivotaltracker.com/n/projects/2215959
+```
+[![Build Status](https://travis-ci.com/ManuelDominic/API-Endpoints.svg?branch=develop)](https://travis-ci.com/ManuelDominic/API-Endpoints) [![Coverage Status](https://coveralls.io/repos/github/ManuelDominic/API-Endpoints/badge.svg?branch=develop)](https://coveralls.io/github/ManuelDominic/API-Endpoints?branch=develop)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage)
+
+```
+ https://dashboard.heroku.com/apps/sendit-api-endpoint
+>>>>>>> 37f39ede0e30d7e8a6a3bc2c0d50d23708ad2b57
 ```  
 
 ## Deployment
