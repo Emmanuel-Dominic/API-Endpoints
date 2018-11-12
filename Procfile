@@ -1,0 +1,1 @@
+web: gunicorn sendit-api-endpoint:app
