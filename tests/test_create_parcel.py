@@ -4,16 +4,6 @@ def test_create_parcels(test_client):
     """
     Given an API user
 	When I submit a post to http://127.0.0.1:5000/POST /parcels/
-	  And I have filled in
-	  -parcelId
-	  -item
-	  -laptop
-	  -weight
-	  -userId
-	  -commentDescription
-	  -locationPicker
-	  -destination
-	  -status 
 	Then an asset is created
 	  And the system returns an http status code 201 created
 	  And the system returns the URI for the created parcel
