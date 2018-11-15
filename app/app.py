@@ -55,32 +55,34 @@ def create_app(config=None):
                 parcel["status"] = False
                 return jsonify({'Cancelled': parcels}), 204
 
+
     @app.route('/api/v1/parcels', methods=['POST'])
     def create_parcel():
-        """
-        This function returns Created a parcel delivery order.
-        """
+        '''
+        creates a new parcel order
+        '''
         request_data = request.get_json()
-        if is_valid_request(request_data):
-            parcel = {'parcelId': len(parcels) + 1,'item': request_data['item'],\
-                'weight': request_data['weight'],'userId': request_data['userId'],\
-                'destination': request_data['destination'],'locationPicker': request_data['locationPicker'],\
-                'commentDescription': request_data['commentDescription'],'userId': request_data['userId'],\
-                'status': request_data['status']}
+        if validation(request_data):
+            parcel = {
+                'parcelId': len(parcels) + 1,
+                'item': request_data['item'],
+                'weight': request_data['weight'],
+                'userId': request_data['userId'],
+                'destination': request_data['destination'],
+                'locationPicker': request_data['locationPicker'],
+                'commentDescription': request_data['commentDescription'],
+                'status': request_data['status']
+                }
+            data1 = {'Message': "Parcel delivery created successfully",\
+             'OrderId': parcel.get('parcelId')}
             parcels.append(parcel)
-            response = Response("", 201, mimetype="application/json")
-            response.headers['Location'] = "parcels/" + str(parcel['id'])
-            return jsonify({'msg': 'parcel delivery requests created'},parcel)
-        
-        bad_object = {
-            "error": "Invalid Parcel delivery order object"
-        }
-        response = Response(json.dumps(bad_object), status=400,\
-         mimetype="appliation/json")
+            response = Response(response = json.dumps(data1)), 201
+            return response
+        data2 = {"error": "Invalid object" }
+        response = Response(json.dumps(data2),400)
         return response
 
-
-    def is_valid_request(newparcel):
+    def validation(newparcel):
         """
         This function checks for parcel delivery order input if valid.
         """
@@ -122,4 +124,4 @@ def create_app(config=None):
 
 if __name__ == '__main__':
     app = create_app()
-    app.run(port=5000)
+    app.run(debug = True)
