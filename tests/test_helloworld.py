@@ -1,14 +1,12 @@
 from flask import jsonify, json
 
-# import pytest
-
 def test_helloworld(test_client):
     """
     GIVEN a User model
-    WHEN a new User is created
-    THEN check the email, hashed_password, authenticated, and role fields are defined correctly
+    WHEN a User visits
+    THEN welcome note is defined correctly
     """
     data = {'EMMANUEL' : 'API-Endpoints'}
-    response = test_client.get('/')
+    response = test_client.get('/api/v1/')
     assert response.status_code == 200
-    assert test_client.get('/',data=json.dumps(data))
+    assert test_client.get('/api/v1/',data=json.dumps(data))

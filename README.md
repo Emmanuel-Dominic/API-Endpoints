@@ -4,6 +4,15 @@ A set of API endpoints defined to use data structures
 to store data in memory (without use a database).
 
 ## Getting Started Requirements
+
+###You Need to install:
+```
+ >*Server side Framework:*(Insert tool .eg vscode, pycharm)
+ >*Linting Library:* (Insert tool .eg pylint)
+ >*Style Guide:* (Insert tool .eg How python is writen)
+ >*Testing Framework:* (insert tool .eg pytest)
+ ```
+
 ```
  https://www.pivotaltracker.com/n/projects/2215959
 ```
@@ -12,6 +21,7 @@ to store data in memory (without use a database).
 
 ```
  https://dashboard.heroku.com/apps/sendit-api-endpoint
+
 ```  
 
 ## Deployment
