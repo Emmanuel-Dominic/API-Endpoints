@@ -10,16 +10,16 @@ def create_app(config=None):
     @app.route('/api/v1/')
     def helloworld():
         """
-        This function returns {{'EMMANUEL ': 'API-Endpoints'}}.
+        This function returns {{'This is ': 'Challenge two API-Endpoints with Andela'}}.
         """
-        return jsonify({'EMMANUEL ': 'API-Endpoints'}), 200
+        return jsonify({'This is ': 'Challenge two API-Endpoints with Andela'}), 200
 
     @app.route('/api/v1/parcels', methods=['GET'])
     def get_parcels():
         """
         This function returns/Fetch all parcel delivery orders.
         """
-        return jsonify({'ALL_PARCEL_ORDERS ': parcels}), 200
+        return jsonify({'All_Parcel_Orders_Are ': parcels}), 200
 
     @app.route('/api/v1/parcels/<int:parcelId>', methods=['GET'])
     def get_parcel(parcelId):
@@ -28,7 +28,7 @@ def create_app(config=None):
         """
         for parcel in parcels:
             if parcel['parcelId'] == parcelId:
-                return jsonify({'SPECIFIC_PARCEL ':parcel}), 200
+                return jsonify({'A_Specific_Parcel_Order_By_ID ':parcel}), 200
         return jsonify({'Error':"Not found"}), 404
 
     @app.route('/api/v1/users/<int:userId>/parcels', methods=['GET'])
@@ -41,8 +41,8 @@ def create_app(config=None):
             if parcel['userId'] == userId:
                 user_parcels.append(parcel)
         if len(user_parcels) != 0:
-            return jsonify({'PARCELS': user_parcels}), 200
-        return jsonify({'Error':"Not found"}), 404
+            return jsonify({'Specific_User_Parcels_Are ': user_parcels}), 200
+        return jsonify({'Error':"Not_found"}), 404
 
 
     @app.route('/api/v1/parcels/<int:parcelId>/cancel', methods=['PUT'])
@@ -53,7 +53,8 @@ def create_app(config=None):
         for parcel in parcels:
             if parcel["parcelId"] == parcelId:
                 parcel["status"] = False
-                return jsonify({'Cancelled': parcels}), 204
+                return jsonify({'Parcel_Order_Cancelled_Is': parcel['status']}), 204
+
 
 
     @app.route('/api/v1/parcels', methods=['POST'])
@@ -61,6 +62,8 @@ def create_app(config=None):
         '''
         creates a new parcel order
         '''
+        if not request.content_type == 'application/json':
+            return jsonify({"failed": 'Content-type must be application/json'}), 401
         request_data = request.get_json()
         if validation(request_data):
             parcel = {
@@ -73,12 +76,11 @@ def create_app(config=None):
                 'commentDescription': request_data['commentDescription'],
                 'status': request_data['status']
                 }
-            data1 = {'Message': "Parcel delivery created successfully",\
-             'OrderId': parcel.get('parcelId')}
+            data1 = {'Message': "Parcel delivery created successfully", 'OrderId': parcel.get('parcelId')}
             parcels.append(parcel)
             response = Response(response = json.dumps(data1)), 201
             return response
-        data2 = {"error": "Invalid object" }
+        data2 = {"Error": "Invalid object" }
         response = Response(json.dumps(data2),400)
         return response
 
@@ -94,29 +96,63 @@ def create_app(config=None):
             return False
 
 
+    @app.route('/api/v1/users')
+    def get_user():
+        """
+            This function returns all users
+        """
+        return jsonify({"Parcel_Delivery_Order_Customers ": users}),200
+
+
     parcels = [
-        {'parcelId': 1, 'item': 'laptop', 'weight': '3.9kg', 'userId': 2,\
-        'commentDescription':'thanks', 'locationPicker': 'america',\
-        'destination': 'kyengera', 'status': True },
-        {'parcelId': 2, 'item': 'laptop', 'weight': '3.9kg', 'userId': 3,\
-        'commentDescription':'thanks', 'locationPicker': 'america',\
-         'destination': 'kyengera', 'status': True },
-        {'parcelId': 3, 'item': 'laptop4', 'weight': '3.9kg', 'userId': 2,\
-        'commentDescription':'thanks', 'locationPicker': 'america',\
-         'destination': 'kyengera', 'status': True },
-        {'parcelId': 4, 'item': 'laptop', 'weight': '3.9kg', 'userId': 1,\
-        'commentDescription':'thanks', 'locationPicker': 'america',\
-         'destination': 'kyengera', 'status': True }
-        ]
+        {
+            "commentDescription": "Thanks",
+            "destination": "Kamyokya",
+            "item": "hp-laptop",
+            "locationPicker": "America",
+            "parcelId": 1,
+            "status": True,
+            "userId": 2,
+            "weight": "5.7kg"
+        },
+        {
+            "commentDescription": "Required",
+            "destination": "kyengera",
+            "item": "Dell-laptop",
+            "locationPicker": "Dubia",
+            "parcelId": 2,
+            "status": True,
+            "userId": 3,
+            "weight": "5.8kg"
+        },
+        {
+            "commentDescription": "See you",
+            "destination": "Rubaga",
+            "item": "Tablet",
+            "locationPicker": "Jamaica",
+            "parcelId": 3,
+            "status": True,
+            "userId": 2,
+            "weight": "1.4kg"
+        },
+        {
+            "commentDescription": "Thanks",
+            "destination": "Wakiso",
+            "item": "Router",
+            "locationPicker": "London",
+            "parcelId": 4,
+            "status": True,
+            "userId": 1,
+            "weight": "3.6kg"
+        }
+    ]
+
 
     users = [
-        {'name': 'joseph', 'userId': 1, 'email': 'joseph@gmail.com',\
-         'password': 'pass1'},
-        {'name': 'emmanuel', 'userId': 2, 'email': 'emmanuel@gmail.com',\
-         'password': 'pass2'},
-        {'name': 'annmary', 'userId': 3, 'email': 'annmary@gmail.com',\
-         'password': 'pass3'}
-        ]
+        {"Name": 'Chosen Emmanuel', "Card_Number": 'HD2U9DHHHOW8', "Email": 'ematembu2@gmail.com', "userId": 3, "Password": 'pass1'},
+        {"Name": 'Matembu Emmanuel', "Card_Number": 'HD2U9DHHHOW8', "Email": 'ematembu@gmail.com',"userId": 1, "Password": 'pass2'},
+        {"Name": 'Dominic Emmanuel', "Card_Number": '9HEH9H9OH2FKA', "Email": 'ematembu1@gmail.com',"userId": 2, "Password": 'pass3'}
+    ]
 
 
     return app
