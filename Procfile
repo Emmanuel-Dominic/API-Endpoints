@@ -1,1 +1,1 @@
-web: gunicorn sendit-api-endpoint:app
+web: gunicorn run:app
