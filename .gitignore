@@ -3,6 +3,4 @@ venv
 __init__.pyc
 app.pyc
 __pycache__
-*.pyc
-.vscode
 htmlcov
