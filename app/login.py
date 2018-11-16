@@ -1,8 +1,28 @@
 class User(object):
     """User class handles create and read ,signin and sign up for user"""
+    
     users = [
-        {'Matembu Emmanuel', 'HD2U9DHHHOW8', 'ematembu@gmail.com', 'pass'},
-        {'Dominic Emmanuel', '9HEH9HH9OH2FKA', 'ematembu1@gmail.com', 'pass'}
+        {
+            "Card_Number": "HD2U9DHHHOW8",
+            "Email": "ematembu2@gmail.com",
+            "Name": "Chosen Emmanuel",
+            "Password": "pass1",
+            "userId": 3
+        },
+        {
+            "Card_Number": "HD2U9DHHHOW8",
+            "Email": "ematembu@gmail.com",
+            "Name": "Matembu Emmanuel",
+            "Password": "pass2",
+            "userId": 1
+        },
+        {
+            "Card_Number": "9HEH9H9OH2FKA",
+            "Email": "ematembu1@gmail.com",
+            "Name": "Dominic Emmanuel",
+            "Password": "pass3",
+            "userId": 2
+            }
         ]
 
     def __init__(self):
@@ -55,9 +75,5 @@ class User(object):
 
 
 if __name__ == '__main__':
-    # emma = User('Matembu Emmanuel', 'HD2U9DHHHOW8', 'ematembu@gmail.com', 'pass')
-    # emma.sign_up()
-    # jose = User()
-    # jose.log_in('ematembu1@gmail.com', 'pass2')
     print(User.users)
     app.run(debug=True)
