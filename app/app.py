@@ -53,7 +53,7 @@ def create_app(config=None):
         for parcel in parcels:
             if parcel["parcelId"] == parcelId:
                 parcel["status"] = False
-                return jsonify({'Parcel_Order_Cancelled_Is': parcel['status']}), 204
+                return jsonify({'Parcel_Order_Cancelled_Is': parcel['status']}),204
 
 
 
@@ -149,10 +149,28 @@ def create_app(config=None):
 
 
     users = [
-        {"Name": 'Chosen Emmanuel', "Card_Number": 'HD2U9DHHHOW8', "Email": 'ematembu2@gmail.com', "userId": 3, "Password": 'pass1'},
-        {"Name": 'Matembu Emmanuel', "Card_Number": 'HD2U9DHHHOW8', "Email": 'ematembu@gmail.com',"userId": 1, "Password": 'pass2'},
-        {"Name": 'Dominic Emmanuel', "Card_Number": '9HEH9H9OH2FKA', "Email": 'ematembu1@gmail.com',"userId": 2, "Password": 'pass3'}
-    ]
+        {
+            "Card_Number": "HD2U9DHHHOW8",
+            "Email": "ematembu2@gmail.com",
+            "Name": "Chosen Emmanuel",
+            "Password": "pass1",
+            "userId": 3
+        },
+        {
+            "Card_Number": "HD2U9DHHHOW8",
+            "Email": "ematembu@gmail.com",
+            "Name": "Matembu Emmanuel",
+            "Password": "pass2",
+            "userId": 1
+        },
+        {
+            "Card_Number": "9HEH9H9OH2FKA",
+            "Email": "ematembu1@gmail.com",
+            "Name": "Dominic Emmanuel",
+            "Password": "pass3",
+            "userId": 2
+			}
+		]
 
 
     return app

@@ -67,48 +67,48 @@ to store data in memory (without use a database).
  - (/api/v1/parcels/)
 
 	{
-	    "ALL_PARCEL_ORDERS ": [
-	        {
-	            "commentDescription": "Thanks",
-	            "destination": "Kamyokya",
-	            "item": "hp-laptop",
-	            "locationPicker": "America",
-	            "parcelId": 1,
-	            "status": true,
-	            "userId": 2,
-	            "weight": "5.7kg"
-	        },
-	        {
-	            "commentDescription": "Required",
-	            "destination": "kyengera",
-	            "item": "Dell-laptop",
-	            "locationPicker": "Dubia",
-	            "parcelId": 2,
-	            "status": true,
-	            "userId": 3,
-	            "weight": "5.8kg"
-	        },
-	        {
-	            "commentDescription": "See you",
-	            "destination": "Rubaga",
-	            "item": "Tablet",
-	            "locationPicker": "Jamaica",
-	            "parcelId": 3,
-	            "status": true,
-	            "userId": 2,
-	            "weight": "1.4kg"
-	        },
-	        {
-	            "commentDescription": "Thanks",
-	            "destination": "Wakiso",
-	            "item": "Router",
-	            "locationPicker": "London",
-	            "parcelId": 4,
-	            "status": true,
-	            "userId": 1,
-	            "weight": "3.6kg"
-	        }
-	    ]
+    "All_Parcel_Orders_Are ": [
+        {
+            "commentDescription": "Thanks",
+            "destination": "Kamyokya",
+            "item": "hp-laptop",
+            "locationPicker": "America",
+            "parcelId": 1,
+            "status": true,
+            "userId": 2,
+            "weight": "5.7kg"
+        },
+        {
+            "commentDescription": "Required",
+            "destination": "kyengera",
+            "item": "Dell-laptop",
+            "locationPicker": "Dubia",
+            "parcelId": 2,
+            "status": true,
+            "userId": 3,
+            "weight": "5.8kg"
+        },
+        {
+            "commentDescription": "See you",
+            "destination": "Rubaga",
+            "item": "Tablet",
+            "locationPicker": "Jamaica",
+            "parcelId": 3,
+            "status": true,
+            "userId": 2,
+            "weight": "1.4kg"
+        },
+        {
+            "commentDescription": "Thanks",
+            "destination": "Wakiso",
+            "item": "Router",
+            "locationPicker": "London",
+            "parcelId": 4,
+            "status": true,
+            "userId": 1,
+            "weight": "3.6kg"
+       		 }
+   	 	]
 	}
 
 ```
@@ -117,8 +117,7 @@ to store data in memory (without use a database).
   - (/api/v1/parcels/'parcelId=1'/)
 
 	{
-
-    "SPECIFIC_PARCEL ": {
+    "A_Specific_Parcel_Order_By_ID ": {
         "commentDescription": "Thanks",
         "destination": "Kamyokya",
         "item": "hp-laptop",
@@ -127,7 +126,7 @@ to store data in memory (without use a database).
         "status": true,
         "userId": 2,
         "weight": "5.7kg"
-    	}
+		}
 	}
 
 ```
@@ -136,7 +135,7 @@ to store data in memory (without use a database).
  - (/api/v1/users/'userId=2'/parcels)
 
     {
-    "PARCELS": [
+    "Specific_User_Parcels_Are ": [
         {
             "commentDescription": "Thanks",
             "destination": "Kamyokya",
@@ -156,8 +155,8 @@ to store data in memory (without use a database).
             "status": true,
             "userId": 2,
             "weight": "1.4kg"
-	        }
-	    ]
+			}
+		]
 	}
 
 ```
@@ -166,7 +165,7 @@ to store data in memory (without use a database).
  - (/api/v1/parcels/'parcelId=1'/cancel)-@(200 JSON)
 
  	{
-    "Parcel Cancelled": false
+    "Parcel_Order_Cancelled_Is": false
 	}
 ```
 * GET request for Helloworld Testing(JSON).
@@ -174,7 +173,38 @@ to store data in memory (without use a database).
  - (/api/v1/)
 
  	{
-    "EMMANUEL ": "API-Endpoints"
+    "This is ": "Challenge two API-Endpoints with Andela"
+	}
+
+```
+* GET request for Users(JSON).
+```
+ - (/api/v1/users)
+
+ 	{
+    "Parcel_Delivery_Order_Customers ": [
+        {
+            "Card_Number": "HD2U9DHHHOW8",
+            "Email": "ematembu2@gmail.com",
+            "Name": "Chosen Emmanuel",
+            "Password": "pass1",
+            "userId": 3
+        },
+        {
+            "Card_Number": "HD2U9DHHHOW8",
+            "Email": "ematembu@gmail.com",
+            "Name": "Matembu Emmanuel",
+            "Password": "pass2",
+            "userId": 1
+        },
+        {
+            "Card_Number": "9HEH9H9OH2FKA",
+            "Email": "ematembu1@gmail.com",
+            "Name": "Dominic Emmanuel",
+            "Password": "pass3",
+            "userId": 2
+			}
+		]
 	}
 
 ```
