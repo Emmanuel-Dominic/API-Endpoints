@@ -211,6 +211,6 @@ to store data in memory (without use a database).
 ## Acknowledgments
 * Inspiration
 * Andela-Uganda
-* Andela-LFA
+* Andela-LFA (Harriet and Jude)
 * Bootcamp-14Challenge-Team@Open-Andela
 
